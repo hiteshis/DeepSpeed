@@ -606,7 +606,7 @@ def init_distributed(dist_backend=None,
         required_env = ["RANK", "WORLD_SIZE", "MASTER_ADDR", "MASTER_PORT", "LOCAL_RANK"]
         utils.logger.info("Required env")
         utils.logger.info(str(all(map(lambda v: v in os.environ, required_env))))
-        if True: #auto_mpi_discovery and not all(map(lambda v: v in os.environ, required_env)):
+        if auto_mpi_discovery and not all(map(lambda v: v in os.environ, required_env)):
             if verbose:
                 utils.logger.info("Not using the DeepSpeed or dist launchers, attempting to detect MPI environment...")
             if in_aml() and not in_dlts():
