@@ -584,7 +584,7 @@ def init_distributed(dist_backend=None,
     global cdb
 
     configure(deepspeed_config=config)
-
+    verbose = True
     if dist_init_required is None:
         dist_init_required = cdb is None or not cdb.is_initialized()
 
